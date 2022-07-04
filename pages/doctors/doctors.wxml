@@ -1,0 +1,76 @@
+<!--pages/doctors/doctors.wxml-->
+<view id="ct">
+  <view class="scr">
+    <scroll-view scroll-x="true" class="nav" scroll-left="" scroll-with-animation="true">
+      <view class="{{currentNo == 0 ? 'active' : 'all'}}" bindtap="changeNav" data-value='0' style="display: inline-block;width: 18%; text-align: center;overflow: hidden;">全部</view>
+      <block wx:for="{{depInfo}}" wx:key="index">
+        <view class="{{ currentNo == item.id ? 'active' : 'tab'}}" bindtap="changeNav" data-value="{{item.id}}" style="display: inline-block;width: 20%; text-align: center;overflow: hidden;text-overflow: ellipsis;">{{item.depName}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <block wx:if="{{dtInfo != ''}}">
+    <view class="NumList" wx:for="{{dtInfo}}" wx:key="index">
+      <navigator class="navInfo" url="{{(item.isOpen == '1')?'': urlPath+item.docDepId}}" wx:if="{{currentNo == 0}}">
+        <view class="Dimg">
+          <image src="{{BaseURL+item.docImgpath}}" />
+        </view>
+        <view class="docInfo">
+          <view>
+            <text style="font-weight: 600;">姓名：</text>
+            <text>{{item.docName}}</text>
+          </view>
+          <view>
+            <text style="font-weight: 600;">职称：</text>
+            <text>{{item.docProfession}}</text>
+          </view>
+          <view>
+            <text style="font-weight: 600;">科室：</text>
+            <text>{{item.docDep}}</text>
+          </view>
+          <View>
+            <text style="font-weight: 600;">简介：</text>
+            <text>{{item.docIntroduce}}</text>
+          </View>
+        </view>
+        <view class="state">
+          <text class="open" wx:if="{{item.isOpen == '0'}}"> 可预约</text>
+          <text class="close" wx:elif="{{item.isOpen == '1'}}">休息中</text>
+        </view>
+      </navigator>
+      
+      <view wx:elseif="{{currentNo != 0}}" >
+        <navigator class="navInfo" url="{{(item.isOpen == '1')?'': urlPath+currentNo}}" wx:if="{{item.docDepId == currentNo}}">
+        <view class="Dimg">
+          <image src="{{BaseURL+item.docImgpath}}" />
+        </view>
+        <view class="docInfo">
+          <view>
+            <text style="font-weight: 600;">姓名：</text>
+            <text>{{item.docName}}</text>
+          </view>
+          <view>
+            <text style="font-weight: 600;">职称：</text>
+            <text>{{item.docProfession}}</text>
+          </view>
+          <view>
+            <text style="font-weight: 600;">科室：</text>
+            <text>{{item.docDep}}</text>
+          </view>
+          <View>
+            <text style="font-weight: 600;">简介：</text>
+            <text>{{item.docIntroduce}}</text>
+          </View>
+        </view>
+        <view class="state">
+          <text class="open" wx:if="{{item.isOpen == '0'}}"> 可预约</text>
+          <text class="close" wx:elif="{{item.isOpen == '1'}}">休息中</text>
+        </view>
+      </navigator></view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="tip">
+      <text>暂未获取到相关数据o(╯□╰)o</text>
+    </view>
+  </block>
+</view>

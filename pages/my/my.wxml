@@ -1,0 +1,60 @@
+<!--pages/my/my.wxml-->
+<view id="ct">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <view class="btn">
+        <text></text>
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 微信登录 </button>
+        <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 微信登录 </button>
+        <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+     </view>
+    </block>
+    <block wx:else>
+    <view class="user">
+      <view class="uinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </view>
+      <view class="huanying">
+        <text > <text class="userinfo-nickname">{{userInfo.userNickname}}</text>欢迎您！</text>
+      </view>
+      <view class="info" style="margin-top: 50rpx;">
+      <text>当前余额：</text><text space="nbsp" style="color: rgb(255, 136, 0);">{{userInfo.money }}  </text>元
+       <text bindtap="toRecharge" space="ensp" style="color: #7a7a7a;"> 去充值 >></text>
+      </view>
+      </view>
+      <!-- <button open-type="getPhoneNumber" bindgetphonenumber="author"> 获取手机号</button> -->
+    </block>
+  </view>
+
+  
+  <view class="userList">
+    <view class="list" bindtap="toUserinfo">
+      <view>
+       <image class="icon" src="{{ucenterList[0].icon}}" mode="widthFix" style="border-radius: 20rpx;margin-left:10rpx"/>
+         <text>{{ucenterList[0].text}}</text></view>
+      <text style="color: grey;">>></text>
+    </view>
+    <view class="list" bindtap="toAptrecord">
+      <view>
+       <image class="icon" src="{{ucenterList[1].icon}}" mode="widthFix" style="border-radius: 20rpx;margin-left:10rpx"/>
+         <text>{{ucenterList[1].text}}</text></view>
+      <text style="color: grey;">>></text>
+    </view>
+    <view class="feedback" style="display: inline;justify-content: space-between;"> 
+      <view class="list">
+      <button open-type="feedback" id="btn" >
+       <!-- <image class="icon" src="../../image/about.jpg" mode="widthFix" style="border-radius: 20rpx;"/> -->
+         <text>信息反馈</text></button></view>
+    </view>
+  </view>
+
+  <view class="footer" style="color: black; text-align: center; width: auto;height: 280rpx;margin-top: 10rpx;">
+    <text>2022-LY</text>
+  </view>
+</view>

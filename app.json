@@ -1,0 +1,49 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/keshi/keshi",
+    "pages/my/my",
+    "pages/appointment/appointment",
+    "pages/doctors/doctors",
+    "pages/userinfo/userinfo",
+    "pages/appointment_record/appointment_record",
+    "pages/record_operation/record_operation",
+    "pages/re_charge/re_charge",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "医助手",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#000"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#ff6347",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "预约",
+        "iconPath": "image/R-C.png",
+        "selectedIconPath": "image/R-C1.png"
+      },
+      {
+        "pagePath": "pages/keshi/keshi",
+        "text": "科室",
+        "iconPath": "image/hospital.png",
+        "selectedIconPath": "image/hospital1.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+         "iconPath": "image/my_1.png",
+         "selectedIconPath": "image/my_11.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

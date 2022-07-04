@@ -1,0 +1,63 @@
+/* pages/appointment/appointment.wxss */
+/* Page{
+  height: 100%;
+} */
+#ct{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(245, 245, 245,0.9); 
+  line-height: 70rpx;
+}
+.mainContainer{
+  width: 720rpx;
+ padding: 5rpx 15rpx;
+  /* border:5rpx solid black; */
+}
+.child{
+  height: 135vh;
+}
+.normal{
+  height: 110vh;
+}
+.aptForm{
+  width: 620rpx;
+  border: 5rpx dashed #008496;
+  border-radius: 5px;
+  margin: 50rpx auto;
+  padding-left: 20rpx;
+  background-color: rgba(248, 248, 248,0.8);
+}
+.tit{
+  width: 100%;
+  margin-top: 30rpx;
+  text-align: center;
+}
+.tit text{
+  font-weight: 800;
+}
+.info{
+  width: 100%;
+  margin-top: 60rpx;
+  display: inline-flex;
+  /* border-bottom: 5rpx dotted #bdbbbb; */
+}
+
+.info input{
+  height: 50rpx;
+  width: 400rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  text-align: center;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx grey;
+}
+.arrow{
+  display: inline-block;
+  transform: rotate(90deg);
+  color: #777272;
+}
+.pk{
+  padding-left: 20rpx;
+}
+.picker{
+  display: inline-flex;
+}

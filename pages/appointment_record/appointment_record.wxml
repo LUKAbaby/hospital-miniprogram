@@ -1,0 +1,30 @@
+<!--pages/appointment_record/appointment_record.wxml-->
+<view id="ct">
+  <view class="main" wx:for="{{aptList}}" wx:key="index">
+    <view class="img">
+      <image src="{{BaseURL}}" style="height: 150rpx;width: 150rpx;"/>
+    </view>
+    <view class="maininfo" bindtap="toMoreInfo" data-aptNo="{{item.appointNo}}">
+    <view class="orinfo">
+     <view> <text style="font-weight: 800;font-size: 40rpx;">医生编号：{{item.appointDocId}}</text></view>
+      <view><text style="color: gold;">{{item.appointFee}}元</text></view> </view>
+    <view class="info">
+    <view class="tags">
+      <text style="color: grey;font-size: small;">{{crTime[index]}}</text></view>
+
+      <block wx:if="{{item.recordStatus == 0}}"> <view><text style="color: #a70752;">待支付</text></view></block>
+      <block wx:elif="{{item.recordStatus == -1}}"> <view><text style="color: #c90000;">未提交</text></view></block>
+      <block wx:elif="{{item.recordStatus == 1}}"> <view><text style="color: #078fa7;">待就诊</text></view></block>
+      <block wx:elif="{{item.recordStatus == 2}}"> <view><text style="color: #07a71c;">已完成</text></view></block>
+      <block wx:elif="{{item.recordStatus == 3}}"> <view><text style="color: #c9b442;">退款中</text></view></block>
+      <block wx:elif="{{item.recordStatus == 4}}"> <view><text style="color: #369142;">已退款</text></view></block>
+      <block wx:elif="{{item.recordStatus == 5}}"> <view><text style="color: #e04b7d;">退款失败</text></view></block>
+      <block wx:elif="{{item.recordStatus == 6}}"> <view><text style="color:grey;">预约失效</text></view></block>
+      <block wx:else> <view><text style="color: #474747;">状态未知</text></view></block>
+      <view><text style="color: #d6d6d6;font-size: small;">详情>></text></view>
+  </view>
+    <view class="btn" style="float: right;"> 
+    </view>
+  </view>
+  </view>
+</view>

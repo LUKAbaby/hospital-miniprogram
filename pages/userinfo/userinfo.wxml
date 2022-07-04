@@ -1,0 +1,49 @@
+<!--pages/userinfo/userinfo.wxml-->
+<view id="ct">
+  <view class="userImg">
+    <view class="uImg">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    </view><text style="font-weight: 800;">个人信息</text>
+  </view>
+  <view class="userForm">
+  <form bindsubmit="Formsubmit">
+    <view class="list">
+      <view class="title">
+        <text>昵 称</text>
+      </view>
+      <view class="info">
+        <input type="text" placeholder="用户名" value="{{userInfo.userNickname}}" disabled="true" maxlength="20" style="text-align: center;" name="nick_name"/>
+      </view>
+    </view>
+    <view class="list">
+      <view class="title">
+        <text>性 别</text>
+      </view>
+      <view class="info">
+        <picker bindchange="pikerChange" mode="selector" range="{{gender}}" value="{{index}}" range-key="val" name="gender">
+        <input type="text" placeholder="性别" value="{{gender[index].val}}" disabled="true" maxlength="20" style="text-align: center;"/>
+        </picker>
+      </view>
+    </view>
+    <view class="list">
+      <view class="title">
+        <text>手机号码</text><text style="color: red;">*</text>
+      </view>
+      <view class="info">
+        <input type="digit" value="{{userInfo.userPhone}}" placeholder="请输入手机号码"  maxlength="11" style="text-align: center;" name="phone_number" />
+      </view>
+    </view>
+    <view class="list">
+      <view class="title">
+        <text>支付密码</text><text style="color: red;">*</text>
+      </view>
+      <view class="info">
+        <input type="digit" password="true" value="{{userInfo.payPwd}}" placeholder="请设置六位支付密码"  maxlength="6" style="text-align: center;" name="payPwd" />
+      </view>
+    </view>
+    <view class="btn">
+    <button type="primary" form-type="submit">修改信息</button>
+    </view>
+  </form>
+  </view>
+</view>

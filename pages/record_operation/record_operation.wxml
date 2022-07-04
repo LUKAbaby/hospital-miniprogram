@@ -1,0 +1,100 @@
+<!--pages/record_operation/record_operation.wxml-->
+<view id="{{ischild == 1 ? 'ischild':'ct'}}">
+<!-- 头部 -->
+  <view class="top">
+    <view>
+    <view style="align-items: baseline;">
+      <block wx:if="{{aptInfo.recordStatus == 0}}">
+        <icon type="warn" size="50rpx"/><text space="nbsp" style="color: rgb(184, 65, 18);font-weight: bold;font-size: 50rpx;">  待支付</text>
+      </block>
+      <block wx:if="{{aptInfo.recordStatus == -1}}">
+        <icon type="warn" size="50rpx"/><text space="nbsp" style="color: rgb(184, 65, 18);font-weight: bold;font-size: 50rpx;">  未提交</text>
+      </block>
+      <block wx:elif="{{aptInfo.recordStatus == 1}}">
+        <icon type="waiting" size="50rpx" color="rgb(82, 184, 150)"/><text space="nbsp" style="color: rgb(18, 184, 129);font-weight: bold;font-size: 50rpx;">  待就诊</text>
+      </block>
+      
+      <block wx:elif="{{aptInfo.recordStatus == 2}}">
+        <icon type="success" size="50rpx"/><text space="nbsp" style="color: rgb(18, 184, 18);font-weight: bold;font-size: 50rpx;">  已完成</text>
+      </block>
+      <block wx:elif="{{aptInfo.recordStatus == 3}}">
+        <icon type="waiting" size="50rpx" color="rgb(68, 68, 68)"/><text space="nbsp" style="color: rgb(68, 68, 68);font-weight: bold;font-size: 50rpx;">  退款中</text>
+      </block>
+      <block wx:elif="{{aptInfo.recordStatus == 4}}">
+        <icon type="success" size="50rpx" color="rgb(54, 145, 66)"/><text space="nbsp" style="color: rgb(54, 145, 66);font-weight: bold;font-size: 50rpx;">  已退款</text>
+      </block>
+      <block wx:elif="{{aptInfo.recordStatus == 5}}">
+        <icon type="cancel" size="50rpx" color="rgb(224, 75, 125)"/><text space="nbsp" style="color: rgb(224, 75, 125);font-weight: bold;font-size: 50rpx;">  退款失败</text>
+      </block>
+      <block wx:elif="{{aptInfo.recordStatus == 6}}">
+        <icon type="cancel" size="50rpx" color="grey"/><text space="nbsp" style="color: grey;font-weight: bold;font-size: 50rpx;">  预约失效</text>
+      </block>
+    </view>
+      <text class="crtime" space="nbsp" style="color: #5c5c5c;">——  创建时间 {{crTime}}  ——</text>
+    </view></view>
+<!-- 预约详情 -->
+  <view class="main" >
+    <view class="info" >
+      <text style="display: block;" space="ensp">  预约单编号：</text>
+      <text style="display: block;" space="nbsp">{{aptInfo.appointNo}}    </text>
+    </view>
+    <view class="info" >
+      <text style="display: block;" space="ensp">  预 约 人：</text>
+      <text style="display: block; " >{{aptInfo.userName}}</text>
+    </view>
+    <view class="info" >
+      <text style="display: block;" space="ensp">  联系电话：</text>
+      <text style="display: block; " >{{aptInfo.userPhone}}</text>
+    </view>
+    <view class="info" >
+      <text style="display: block;" space="ensp">  预约科室：</text>
+      <text style="display: block; " >{{aptInfo.depId}}</text>
+    </view>
+    <view class="info" >
+      <text style="display: block;" space="ensp">  预约医生：</text>
+      <text style="display: block; " >{{aptInfo.appointDocId}}</text>
+    </view>
+    <view class="info" >
+      <text style="display: block;" space="ensp">  预约日期：</text>
+      <text style="display: block; " >{{aptInfo.appointDate}}</text>
+    </view>
+    <view class="info" >
+      <text style="display: block;" space="ensp">  预约时间：</text>
+      <text style="display: block; " >{{aptInfo.appointTime}}</text>
+    </view>
+    <view wx:if="{{aptInfo.isChild == 1}}">
+    <view class="info" >
+      <text style="display: block;" space="ensp">  儿童姓名：</text>
+      <text style="display: block;" >{{aptInfo.childName}}</text>
+    </view>
+    <view class="info" >
+      <text style="display: block;" space="ensp">  出生日期：</text>
+      <text style="display: block; " >{{aptInfo.childBirthday}}</text>
+    </view>
+    
+    </view>
+
+    <view class="btn">
+    <block wx:if="{{flag}}">
+      <button type="primary" size="mini" bindtap="toPay" disabled="{{canPay}}">确认并支付</button>
+      <button type="primary" size="mini" bindtap="reAppoint">重新预约</button>
+      <button type="warn" size="mini" bindtap="cancel" disabled="{{cancelApt}}">取消预约</button>
+    </block>
+     <block wx:else>
+      <button type="primary" size="mini" bindtap="BtnConfirm">确认</button>
+      <button type="warn" size="mini" bindtap="reFund" disabled="{{canRefund}}">申请退款</button>
+     </block>
+    
+  </view>
+  </view>
+</view>
+<view class="mask" wx:if="{{isshowMask}}" catchtouchmove="preventTap"></view>
+<view class="dialog" wx:if="{{isshowDialog}}">
+    <text style="display: inline-block;margin-top: 50rpx;margin-left: 25rpx;">请输入六位数支付密码：</text>
+    <input type="number" password="true" bindinput="payPwd"  maxlength="6" auto-focus="true" style="height: 80rpx;"/>
+    
+    <view style="padding-bottom: 20rpx;display: inline-flex; justify-content: space-between;width: 100%;">
+    <button type="primary" bindtap="confirmPay" size="mini">支付{{aptInfo.appointFee}}</button>
+    <button type="warn" bindtap="cancelPay" size="mini">取消</button>
+    </view> 
+</view>

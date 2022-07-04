@@ -1,0 +1,64 @@
+<!-- index.wxml -->
+<view id="ct">
+<view class="sear">
+  <view class="search">  
+    <view class="sePic"><image  src='{{imageItem}}' style="width: 40rpx;height: 40rpx;padding-top: 5rpx;" /> </view> 
+    <input type="text"  placeholder="  搜索医生" maxlength="10" confirm-type="search" bindinput="bindKeyInput" />
+    <view class="sBtn" ><navigator url="../doctors/doctors?docInfo={{inputValue}}"><text>搜索</text></navigator></view>
+  </view>
+</view>
+<view class="swp">
+<swiper indicator-dots="true" indicator-active-color="green" autoplay="3000" duration="1000" previous-margin="5px" next-margin="5px" circular>
+  <swiper-item><image src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage.nbd.com.cn%2Fuploads%2Farticles%2Fimages%2F883783%2F_______500669269_banner_________________________.jpg&refer=http%3A%2F%2Fimage.nbd.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647245850&t=9fcd40d7f1cbebd2d45f0706dc7ecfc7" /></swiper-item>
+  <swiper-item><image src="https://tse1-mm.cn.bing.net/th/id/R-C.9ee139d3581e5a765551843e72e542f0?rik=amYHj6cIEJeFLQ&riu=http%3a%2f%2feegsmart.10rduc9j.eegsmart.com%2f20160809_1470728094921811395.jpg&ehk=B5dgkI4C52NcURfMvobwjSSfWGwjknj9XUfrD1rMXEk%3d&risl=&pid=ImgRaw&r=0"></image></swiper-item>
+  <swiper-item><image src="https://www.cn-healthcare.com/upload/20190328/1553769899490.jpg"></image></swiper-item>
+</swiper>
+</view>
+<view class="nav">
+<!--预约类型导航网格-->
+  <view class="title" >
+    <text style="font-weight: 800;">{{YuYueTitle}}</text>
+  </view>
+  <view class="classify" >
+    <view><text class="Yi" bindtap="ToNormal">{{Nav1}}</text></view>
+    <view><text class="Yi" bindtap="ToChildren">{{Nav2}}</text></view>
+  </view>
+</view>
+
+  <view class="current-info">
+    <view class="tit">
+    <view class="line"></view>
+      <text style="font: bolder;">可预约医生</text>
+    </view>
+    <view class="more">
+      <navigator url="../doctors/doctors" hover-class="none"><text>更多 >></text></navigator>
+      
+    </view>
+  </view>
+  <block wx:for="{{dtInfo}}" wx:key="index">  
+  <view class="NumList"> 
+    <navigator class="navInfo" url="">
+      <view class="Dimg">
+        <image src="{{BaseURL+item.docImgpath}}" />
+      </view>
+      <view class="docInfo">
+        <view>
+          <text style="font-weight: 600;">姓名：</text>
+          <text>{{item.docName}}</text>
+        </view>
+        <view>
+          <text style="font-weight: 600;">职称：</text>
+          <text>{{item.docProfession}}</text>
+        </view>
+        <view>
+          <text style="font-weight: 600;">科室：</text>
+          <text>{{item.docDep}}</text>
+        </view>
+        <View>
+          <text style="font-weight: 600;">简介：</text>
+          <text>{{item.docIntroduce}}</text>
+        </View>
+      </view></navigator>
+  </view></block>
+</view>
+

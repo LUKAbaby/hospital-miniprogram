@@ -1,0 +1,28 @@
+<!--pages/re_charge/re_charge.wxml-->
+
+<view id="ct">
+  <view class="top">
+  充值用户：<text style="font-weight: 800;">{{userInfo.userNickname}}</text>
+  <view><text>当前余额：</text><text space="nbsp" style="font-weight: 800;color: rgb(255, 136, 0);">{{userInfo.money}} </text>元</view>
+  </view>
+<form bindsubmit="formSubmit">
+
+<view style="margin-top: 50rpx;margin-left: 30rpx;font-weight: 800;color: grey;"><text>充值金额</text></view>
+<view class="main">
+
+<text style="font-size: 30px; margin: 70rpx 25rpx;">￥</text>
+<input type="digit" auto-focus="true" name="charge_money" style="font-size: 20px;"/>
+</view>
+<button type="primary" form-type="submit" style="margin-top: 150rpx;">确认充值</button>
+</form>
+</view>
+<view class="mask" wx:if="{{isshowMask}}" catchtouchmove="preventTap"></view>
+<view class="dialog" wx:if="{{isshowDialog}}">
+    <text style="display: inline-block;margin-top: 50rpx;margin-left: 25rpx;">请输入六位数支付密码：</text>
+    <input type="number" password="true" bindinput="payPwd"  maxlength="6" auto-focus="true" style="height: 80rpx;"/>
+    
+    <view style="padding-bottom: 20rpx;display: inline-flex; justify-content: space-between;width: 100%;">
+    <button type="primary" bindtap="confirmPay" size="mini">支付</button>
+    <button type="warn" bindtap="cancelPay" size="mini">取消</button>
+    </view> 
+</view>

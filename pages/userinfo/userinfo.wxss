@@ -1,0 +1,58 @@
+/* pages/userinfo/userinfo.wxss */
+#ct{
+  width: 100%;
+  height: 100vh;
+  
+  background-color: rgba(244, 244, 244,0.9)
+}
+
+#ct .userImg{
+  width: 730rpx;
+  height: 500rpx;
+  margin: 2rpx 10rpx ;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 5rpx solid rgb(214, 214, 214);
+  border-radius: 10rpx;
+  box-shadow: 1.5px 1.5px 5px #ddd7d7;text-align: center;
+}
+.uImg{
+  width: 270px;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+  box-sizing: border-box;
+  
+
+}
+.uImg .userinfo-avatar{
+  width: 260rpx;
+  height: 260rpx;
+  overflow: hidden;
+  /* margin: 30rpx; */
+  margin: 50rpx 30rpx 30rpx 30rpx;
+  /* border: 2rpx solid green; */
+  border-radius: 50%;
+}
+.userForm{
+  margin: 20rpx 10rpx;
+  box-shadow: 1.5px 1.5px 5px #ddd7d7;
+}
+
+.userForm .list{
+  width: 100%;
+  height: 80rpx;
+  /* margin-top: 3rpx;
+  margin-bottom: 3rpx; */
+  background-color: #ffffff;
+  font-size: medium;
+  align-items: center;
+  display: inline-flex;
+  border-bottom: 3rpx solid #ddd7d7;
+  justify-content: space-between;
+}
+.list .title{
+  margin-left: 30rpx;
+}
+.btn{
+  margin-top: 50rpx;
+}

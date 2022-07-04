@@ -1,0 +1,19 @@
+<!--pages/keshi/keshi.wxml-->
+<view id="ct">
+<view class='container'>
+  <block wx:for="{{depInfo}}" wx:key="index">
+  <navigator url="../doctors/doctors?keshiVal={{item.id}}">
+    <view class='text-content' >
+      <image src="{{BaseURL+item.depImgpath}}" style="width: 30rpx; height: 30rpx;border-radius: 20rpx;" />
+      <text class="keshi">{{item.depName}}</text>
+      <text class="Icon">></text>
+    </view> </navigator>
+  </block>
+  <view style="width: 750rpx;">
+    <view style="text-align: center;margin: 30rpx 0;font-weight: 800;"><text >—— 医院宣传 ——</text></view>
+    </view>
+    <swiper  circular="true" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="grey">
+      <swiper-item><image src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F-Po3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Ff2deb48f8c5494eeb36a7e4520f5e0fe99257e25.jpg&refer=http%3A%2F%2Fgss0.baidu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648086933&t=8472efcc348b4ece7e01922c3379d02b" style="height: 100%;margin:auto;" mode="heightFix" style="width: 100%;"/></swiper-item>
+    </swiper>
+</view></view>
+

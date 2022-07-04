@@ -1,0 +1,144 @@
+/**index.wxss**/
+#ct{
+  width: 100vw;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgba(245, 245, 245,0.9); 
+}
+.sear{ 
+  width: 100%;
+  display: inline;
+
+}
+.search{
+  height: 60rpx;
+  margin: auto;
+  padding-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.sePic{
+  position: relative;
+  width: 50rpx;
+  height: 50rpx;
+  top: 6rpx;
+  left: 75rpx;
+  display: inline-flex;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  background-color: rgba(180, 180, 180, 0.5);
+}
+.search input{
+  width: 60%;
+  height: 50rpx;
+  margin-left: 10%;
+  display: inline-flex;
+  border-top-left-radius: 5rpx;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  background-color: rgba(180, 180, 180, 0.5);
+}
+.sBtn{
+  display: inline-block;
+  width: 110rpx;
+  text-align: center;
+  border: 5rpx solid grey;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-left: 30rpx;
+}
+.swp image{
+  width: 100%;
+  border-radius: 8px;
+}
+.nav{
+  width: 100%;
+  height: 250rpx;
+  margin:8rpx 10rpx auto auto;
+  /* margin-top: 8rpx; */
+  border-top: 8rpx solid;
+  border-top-color: rgba(255, 99, 71,0.6);
+  background-color: rgba(229, 240, 243,0.8);
+  box-sizing: border-box;
+}
+
+.title{
+  width: 100%;
+  height: auto;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  text-align: center;
+}
+.classify{
+  padding-top: 45rpx;
+}
+.classify view{
+  width: 47%;
+  height: 60rpx;
+  margin-left: 1.5%;
+  margin-bottom: 15rpx;
+  display: inline-flex;
+  background-color: rgb(0, 183, 255);
+  border: 2rpx solid rgb(135, 235, 202);
+  border-radius: 10px;
+}
+.Yi{
+  height: 60rpx;
+  margin: auto;
+  padding: 6rpx 0;
+}
+.current-info{
+  width: 100%;
+  height: 80rpx;
+  margin-top: 20rpx;
+  background-color: whitesmoke;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.current-info .tit{
+  width: 200rpx;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.tit .line{
+  width: 10rpx;
+  height: 40rpx;
+  margin-left: 4rpx;
+  background-color: rgba(135, 206, 235,0.8);
+}
+.current-info{
+ border-top-left-radius: 20rpx;
+ border-top-right-radius: 20rpx;
+}
+.current-info .more{
+  margin-right: 8rpx;
+  font-size: smaller;
+  color: skyblue;
+}
+.navInfo{
+  width: 100%;
+  height: 200rpx;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 15rpx 0;
+  border-bottom: 5rpx dashed grey;
+  background-color: rgba(242, 242, 242,0.8);
+}
+
+.Dimg{
+  width:230rpx;
+  margin-left: 20rpx;
+
+}
+.Dimg image{
+  width: 100%;
+  height: 200rpx;
+}
+.navInfo .docInfo{
+  display: inline-flex;
+  flex-direction: column;
+  width: 430rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+}

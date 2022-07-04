@@ -1,0 +1,74 @@
+<!--pages/appointment/appointment.wxml-->
+<view id="ct">
+<view class="mainContainer {{aptType == 1 || keshi > -1? 'child':'normal'}}">
+  <view class="aptForm">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view class="uInfo">
+        <view class="tit"><text>—— 个人信息 ——</text></view>
+        <view class="info"><text space="nbsp">姓 名：</text><input type="text" name="u_name" placeholder="请输入真实姓名" focus="true"/></view>
+        <view class="info"><text space="nbsp">电 话：</text><input type="number" value="{{user_phone}}" maxlength="11" name="u_phNumber" placeholder="请输入您的电话" /></view>
+        <view wx:if="{{aptType == 1 || keshi == 3}}">
+          <view class="tit"><text>—— 儿童信息 ——</text></view>
+          <view class="info"><text>儿童姓名：</text><input type="text" name="c_name" placeholder="请输入真实姓名" /></view>
+          <view class="info"><text>出生日期：</text>
+          <!-- <input type="digit" maxlength="11" name="c_birthday" placeholder="格式（20xx.xx.xx）" /> -->
+          <picker mode="date" value="{{childBirthday}}" bindchange="bindPickerChangeCB" start="2004-01-01" end="2020-12-31" name="c_birthday">
+           <text space="emsp"> {{childBirthday}}</text><text space="nbsp"  class="arrow">  〉</text>
+          </picker>
+          </view>
+        </view>
+        <!--    亲友预约待定
+           <view>
+        <view><text>就诊人:</text>
+          <radio-group name="who" bindtap="whoDo">
+              <radio id="0" checked>本人</radio>
+              <radio id="1">亲友</radio>
+            </radio-group></view>
+            <view>
+              <view><text>—— 就诊人信息 ——</text></view>
+            </view>
+        </view> -->
+        <view>
+        <view class="tit"><text>—— 预约信息 ——</text></view>
+        <view class="info"><text>科 室：</text>
+          <picker class="pk" bindchange="bindPickerChangeKs" value="{{index1}}" range="{{depInfo}}" range-key="depName" name="keshi">
+              <text>{{depInfo[index1].depName}}</text><text space="nbsp"  class="arrow">  〉</text>
+            </picker>
+            
+          <!-- <single-select prop-array="{{keshiInfo}}"></single-select> -->
+        </view>
+        <view class="info"><text>医 生：</text>
+          <view style="display: inline-block;padding-left: 20rpx;">
+            <radio-group name="isChooseDoc" bindtap="getChoose">
+              <radio id="0" value="0" checked>普通号( ￥{{normalFee}})</radio>
+              <radio style="padding-left: 50rpx;" value="1" id="1">专家号</radio>
+            </radio-group>
+          </view></view>
+          <view class="info" wx:if="{{isChooseDoc == 1}}"><text>医生选择：</text>
+          <view class="pk" >
+            <picker bindchange="bindPickerChangeDt" value="{{index2}}" range="{{dtInfo}}" range-key="docName" name="doctor">
+              {{dtInfo[index2].docName}}<text space="nbsp"  class="arrow">  〉</text>
+              <text style="padding-left: 60rpx;">费用：<text style="color: #ff6600; font-weight: 600;">{{dtInfo[index2].appointFee}}</text>元</text>
+            </picker>
+          </view></view>
+          <!-- <single-select prop-array="{{docInfo}}" name="doctor" wx:if="{{isChooseDoc == 1}}"></single-select> -->
+        
+        <view class="info">
+         <view class="picker"><text>预约日期：</text>
+          <picker class="pk" bindchange="bindDatePickerChange" mode="date" start="{{today}}" end="{{endday}}" name="apt_date">
+             <view>{{selectdate}}<text space="nbsp"  class="arrow">  〉</text></view>
+          </picker>
+          <picker mode="time" bindchange="bindTimePickerChange" value="{{selectTime}}" start="09:00" end="21:00"  name="apt_time">
+            <text space="nbsp"> {{selectTime}}</text><text space="nbsp"  class="arrow">  〉</text>
+          </picker>
+          <!-- <input type="digit" maxlength="10" placeholder="预约日期（格式：20XX.XX.XX）" /> -->
+        </view></view>
+      </view>
+      </view>
+      <view>
+        <button style="margin: 50rpx auto" form-type="submit" type="primary">确认预约</button>
+      </view>
+    </form>
+  </view>
+</view>
+</view>

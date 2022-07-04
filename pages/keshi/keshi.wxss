@@ -1,0 +1,27 @@
+/* pages/keshi/keshi.wxss */
+#ct{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(245, 245, 245,0.9); 
+}
+.container{
+  width: 100%;
+  padding: 10rpx 15rpx;
+  align-content: center;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.text-content{
+  padding: 10px;
+  align-content: center;
+  border-bottom: 10rpx solid rgba(245, 245, 245,0.8);
+  background-color: rgb(255, 255, 255)
+}
+.keshi{
+  display: inline-block;
+  padding-left: 25rpx;
+}
+.Icon{
+  color:#cecece;
+  float: right;
+}
